@@ -2,7 +2,7 @@
   {
     "name": "heal_malformed_json",
     "title": "Deterministic Malformed JSON Syntax & Truncation Healer",
-    "description": "Deterministic JSON syntax repair: normalizes quotes, unclosed brackets, and boolean literals into compliant RFC 8259 JSON structure without data deletion. Use when fixing syntax-broken JSON strings that fail JSON.parse(); for coercing field types and verifying properties on already-parseable JSON objects against a target JSON Schema, use enforce_json_schema_types instead. Read-only edge call (32 KB, 60 RPM): accepts 'malformed_json' (with enum defaults), uses '?demo=true' or L402 (50 sats); HTTP 400 if invalid.",
+    "description": "Deterministic JSON syntax repair: normalizes quotes, unclosed brackets, and boolean literals into compliant RFC 8259 JSON structure without data deletion. Use when fixing syntax-broken JSON strings that fail JSON.parse(); for coercing field types and verifying properties on already-parseable JSON objects against a target JSON Schema, use enforce_json_schema_types instead. Read-only edge call (32 KB, 60 RPM): accepts 'malformed_json' (with enum defaults), uses '?demo=true' or L402 (15 sats); HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -63,7 +63,7 @@
   {
     "name": "enforce_json_schema_types",
     "title": "Strict JSON Schema Validator, Type Coercer & Field Pruner",
-    "description": "Validates a raw LLM output object against a target JSON Schema, automatically coercing mismatched scalar types (e.g. string '42' to integer 42), injecting schema defaults, and pruning undeclared hallucinated fields. Use when enforcing schema compliance and type safety on structured LLM outputs before passing them to typed APIs; for healing unparseable raw JSON text with broken quotes or trailing commas, use heal_malformed_json instead. Read-only edge call (32 KB, 60 RPM): accepts 'raw_output' (with enum defaults), uses '?demo=true' or L402 (75 sats); HTTP 400 if invalid.",
+    "description": "Validates a raw LLM output object against a target JSON Schema, automatically coercing mismatched scalar types (e.g. string '42' to integer 42), injecting schema defaults, and pruning undeclared hallucinated fields. Use when enforcing schema compliance and type safety on structured LLM outputs before passing them to typed APIs; for healing unparseable raw JSON text with broken quotes or trailing commas, use heal_malformed_json instead. Read-only edge call (32 KB, 60 RPM): accepts 'raw_output' (with enum defaults), uses '?demo=true' or L402 (15 sats); HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -124,7 +124,7 @@
   {
     "name": "extract_structured_json_entities",
     "title": "Unstructured Text to Typed JSON Entity & Record Extractor",
-    "description": "Extracts structured JSON records, named entities, dates, and financial figures from unstructured prose, emails, or HTML/Markdown dumps. Use when converting unstructured natural-language text into a structured JSON array of entities; for validating and coercing an existing JSON payload against a formal JSON Schema, use enforce_json_schema_types instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('extraction_target' defaults to 'general_entities_and_metrics'), supports '?demo=true' or L402 (150 sats), and returns HTTP 400 if invalid.",
+    "description": "Extracts structured JSON records, named entities, dates, and financial figures from unstructured prose, emails, or HTML/Markdown dumps. Use when converting unstructured natural-language text into a structured JSON array of entities; for validating and coercing an existing JSON payload against a formal JSON Schema, use enforce_json_schema_types instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('extraction_target' defaults to 'general_entities_and_metrics'), supports '?demo=true' or L402 (25 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -186,7 +186,7 @@
   {
     "name": "clean_tabular_dataset",
     "title": "Tabular Dataset & Text Deduplication, Whitespace & Normalization Engine",
-    "description": "Deduplicates repetitive lines or records, normalizes Unicode whitespace, strips HTML/control noise, and canonicalizes tabular text or JSON arrays. Use when cleaning noisy scraped lists, CSV rows, or duplicate log lines before indexing or analysis; for extracting typed JSON fields from free-form prose paragraphs, use extract_structured_json_entities instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'data' ('normalization_mode' defaults to 'exact_match'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Deduplicates repetitive lines or records, normalizes Unicode whitespace, strips HTML/control noise, and canonicalizes tabular text or JSON arrays. Use when cleaning noisy scraped lists, CSV rows, or duplicate log lines before indexing or analysis; for extracting typed JSON fields from free-form prose paragraphs, use extract_structured_json_entities instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'data' ('normalization_mode' defaults to 'exact_match'), supports '?demo=true' or L402 (15 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -247,7 +247,7 @@
   {
     "name": "synthesize_safe_regex",
     "title": "Linear-Time O(n) ReDoS-Safe Regular Expression Synthesizer & Tester",
-    "description": "Synthesizes linear-time O(n) regular expressions free of catastrophic backtracking (ReDoS) and validates them against positive and negative test strings. Use when generating and verifying a regular expression pattern for input validation or lexical parsing; for repairing broken JSON syntax directly without writing custom regexes, use heal_malformed_json instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'description' ('flavor' defaults to 'ecmascript_js'), supports '?demo=true' or L402 (50 sats), and returns HTTP 400 if invalid.",
+    "description": "Synthesizes linear-time O(n) regular expressions free of catastrophic backtracking (ReDoS) and validates them against positive and negative test strings. Use when generating and verifying a regular expression pattern for input validation or lexical parsing; for repairing broken JSON syntax directly without writing custom regexes, use heal_malformed_json instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'description' ('flavor' defaults to 'ecmascript_js'), supports '?demo=true' or L402 (15 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -309,7 +309,7 @@
   {
     "name": "compile_xml_agent_prompt",
     "title": "Production XML-Structured System Prompt & Guardrail Compiler",
-    "description": "Compiles a raw task description into a structured XML system prompt (<role>, <context>, <objective>, <constraints>, <workflow>, <output_format>) engineered to prevent instruction drift. Use when authoring or upgrading a system prompt for an autonomous agent or sub-agent workflow; for mapping a task objective to a concrete sequence of MCP tool calls, use route_mcp_workflow_plan instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'task' ('prompt_style' defaults to 'anthropic_xml_tags'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Compiles a raw task description into a structured XML system prompt (<role>, <context>, <objective>, <constraints>, <workflow>, <output_format>) engineered to prevent instruction drift. Use when authoring or upgrading a system prompt for an autonomous agent or sub-agent workflow; for mapping a task objective to a concrete sequence of MCP tool calls, use route_mcp_workflow_plan instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'task' ('prompt_style' defaults to 'anthropic_xml_tags'), supports '?demo=true' or L402 (20 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -370,7 +370,7 @@
   {
     "name": "synthesize_python_automation_code",
     "title": "Self-Contained Python Script, CLI & Parser Code Synthesizer",
-    "description": "Synthesizes PEP 8 compliant, self-contained Python 3 scripts, data parsers, and CLI utilities complete with type hints, docstrings, and inline assertion tests. Use when generating a standalone Python automation script or parser from a functional specification; for summarizing existing documentation or codebases into executive bullet points, use summarize_technical_document instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'prompt' ('dependency_policy' defaults to 'stdlib_only'), supports '?demo=true' or L402 (300 sats), and returns HTTP 400 if invalid.",
+    "description": "Synthesizes PEP 8 compliant, self-contained Python 3 scripts, data parsers, and CLI utilities complete with type hints, docstrings, and inline assertion tests. Use when generating a standalone Python automation script or parser from a functional specification; for summarizing existing documentation or codebases into executive bullet points, use summarize_technical_document instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'prompt' ('dependency_policy' defaults to 'stdlib_only'), supports '?demo=true' or L402 (75 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -431,7 +431,7 @@
   {
     "name": "summarize_technical_document",
     "title": "High-Density Technical Document & RFC Executive Summarizer",
-    "description": "Condenses long technical specifications, RFCs, research papers, or meeting transcripts into high-density executive bullet points preserving exact figures and decisions. Use when producing a human-readable executive summary of a single provided document; for researching a topic across the live web with Google Search citations, use synthesize_web_intelligence_brief instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('summary_format' defaults to 'executive_bullets'), supports '?demo=true' or L402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Condenses long technical specifications, RFCs, research papers, or meeting transcripts into high-density executive bullet points preserving exact figures and decisions. Use when producing a human-readable executive summary of a single provided document; for researching a topic across the live web with Google Search citations, use synthesize_web_intelligence_brief instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('summary_format' defaults to 'executive_bullets'), supports '?demo=true' or L402 (50 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -492,7 +492,7 @@
   {
     "name": "synthesize_web_intelligence_brief",
     "title": "Real-Time Google Search Grounded JSON Market Intelligence Brief",
-    "description": "Synthesizes a real-time market or technical intelligence brief grounded in live Google Search, returning strict JSON ('executive_summary', 'key_developments', 'sentiment', 'sources'). Use when fetching a structured JSON market/news brief with live web citations and sentiment classification; for summarizing caller-supplied text offline without live web search, use summarize_technical_document instead. Read-only edge call (32 KB, 60 RPM): accepts 'topic' ('focus' defaults to 'technical_and_market_catalysts'), supports '?demo=true' or L402 (200 sats), and returns HTTP 400 if invalid.",
+    "description": "Synthesizes a real-time market or technical intelligence brief grounded in live Google Search, returning strict JSON ('executive_summary', 'key_developments', 'sentiment', 'sources'). Use when fetching a structured JSON market/news brief with live web citations and sentiment classification; for summarizing caller-supplied text offline without live web search, use summarize_technical_document instead. Read-only edge call (32 KB, 60 RPM): accepts 'topic' ('focus' defaults to 'technical_and_market_catalysts'), supports '?demo=true' or L402 (75 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -558,7 +558,7 @@
   {
     "name": "verify_context_compaction_fidelity",
     "title": "Pre/Post Context Compaction Information Retention Verifier",
-    "description": "Audits a compacted conversation summary against the original full context to detect dropped user constraints, lost file paths, altered numbers, or missing pending tasks. Use when verifying that an LLM context-compaction summary retained all task-critical facts before truncating history; for generating a new executive summary from a raw technical document, use summarize_technical_document instead. Read-only edge call (32 KB, 60 RPM): accepts 'original_context' ('compacted_summary' defaults to 'standard'), supports '?demo=true' or L402 (90 sats), and returns HTTP 400 if invalid.",
+    "description": "Audits a compacted conversation summary against the original full context to detect dropped user constraints, lost file paths, altered numbers, or missing pending tasks. Use when verifying that an LLM context-compaction summary retained all task-critical facts before truncating history; for generating a new executive summary from a raw technical document, use summarize_technical_document instead. Read-only edge call (32 KB, 60 RPM): accepts 'original_context' ('compacted_summary' defaults to 'standard'), supports '?demo=true' or L402 (15 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -624,7 +624,7 @@
   {
     "name": "route_mcp_workflow_plan",
     "title": "Autonomous Goal-to-MCP Tool Sequence Router & Cost Planner",
-    "description": "Maps a natural-language agent goal to an ordered sequence of Diogenes MCP tool calls with exact endpoint paths, JSON-RPC 2.0 payloads, and cumulative satoshi cost estimates. Use when planning which MCP tools to chain together to solve a multi-step objective within a satoshi budget; for compiling a static XML system prompt rather than an executable MCP tool call sequence, use compile_xml_agent_prompt instead. Read-only edge call (32 KB, 60 RPM): accepts 'objective' ('budget_preference' defaults to 'lowest_sats_deterministic'), uses '?demo=true' or L402 (100 sats); HTTP 400 if invalid.",
+    "description": "Maps a natural-language agent goal to an ordered sequence of Diogenes MCP tool calls with exact endpoint paths, JSON-RPC 2.0 payloads, and cumulative satoshi cost estimates. Use when an autonomous agent needs to plan which MCP tools to chain together to solve a multi-step objective within a satoshi budget; for compiling a static XML system prompt rather than an executable MCP tool call sequence, use compile_xml_agent_prompt instead. Read-only edge call (32 KB, 60 RPM): accepts 'objective' ('budget_preference' defaults to 'lowest_sats_deterministic'), uses '?demo=true' or L402 (20 sats); HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -685,7 +685,7 @@
   {
     "name": "arbitrate_agent_deliverable_escrow",
     "title": "Multi-Agent Task Deliverable & Contract Fulfillment Escrow Arbiter",
-    "description": "Evaluates a worker agent's submitted task deliverable against agreed contract acceptance criteria to issue a deterministic escrow settlement verdict ('RELEASE_FUNDS_TO_WORKER_AGENT', 'REQUEST_REVISION', or 'REFUND_CLIENT'). Use when settling multi-agent bounties or verifying subcontractor deliverables before releasing MPP/L402 escrow funds; for checking syntactic JSON Schema property types without evaluating semantic contract terms, use enforce_json_schema_types instead. Read-only call (32 KB, 60 RPM): accepts 'deliverable' (with enum defaults), uses '?demo=true' or MPP (150 sats); HTTP 400 if invalid.",
+    "description": "Evaluates a worker agent's submitted task deliverable against agreed contract acceptance criteria to issue a deterministic escrow settlement verdict ('RELEASE_FUNDS_TO_WORKER_AGENT', 'REQUEST_REVISION', or 'REFUND_CLIENT'). Use when settling multi-agent bounties or verifying subcontractor deliverables before releasing MPP/L402 escrow funds; for checking syntactic JSON Schema property types without evaluating semantic contract terms, use enforce_json_schema_types instead. Read-only call (32 KB, 60 RPM): accepts 'deliverable' (with enum defaults), uses '?demo=true' or MPP (30 sats); HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -750,7 +750,7 @@
   {
     "name": "infer_mpp_streaming_session",
     "title": "Base EVM Machine Payments Protocol (MPP) Streaming Session Planner",
-    "description": "Initializes a Base USDC Machine Payments Protocol (MPP) metered inference session, allocating a streaming token quota and returning a step-by-step execution plan. Use when running session-metered agent planning settled via Base EVM MPP 'Payment-Challenge' headers; for mapping a task goal to L402 MCP tool calls without opening an MPP streaming session, use route_mcp_workflow_plan instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'task' ('token_quota_tier' defaults to 'compact_1024'), supports '?demo=true' or MPP (500 sats), and returns HTTP 400 if invalid.",
+    "description": "Initializes a Base USDC Machine Payments Protocol (MPP) metered inference session, allocating a streaming token quota and returning a step-by-step execution plan. Use when running session-metered agent planning settled via Base EVM MPP 'Payment-Challenge' headers; for mapping a task goal to L402 MCP tool calls without opening an MPP streaming session, use route_mcp_workflow_plan instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'task' ('token_quota_tier' defaults to 'compact_1024'), supports '?demo=true' or MPP (100 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
@@ -811,7 +811,7 @@
   {
     "name": "generate_x402_vector_embeddings",
     "title": "Solana x402 USDC-Settled Semantic Vector Embedding Generator",
-    "description": "Generates normalized high-dimensional semantic vector embeddings settled via Solana SPL USDC ('x402' protocol headers) for decentralized RAG pipelines. Use when computing text embeddings paid via Solana USDC x402 signatures rather than Bitcoin Lightning; for extracting discrete JSON entities from unstructured text, use extract_structured_json_entities instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('encoding_format' defaults to 'float_array'), supports '?demo=true' or x402 (100 sats), and returns HTTP 400 if invalid.",
+    "description": "Generates normalized high-dimensional semantic vector embeddings settled via Solana SPL USDC ('x402' protocol headers) for decentralized RAG pipelines. Use when computing text embeddings paid via Solana USDC x402 signatures rather than Bitcoin Lightning; for extracting discrete JSON entities from unstructured text, use extract_structured_json_entities instead. Stateless read-only edge call (max 32 KB, 60 RPM): accepts 'text' ('encoding_format' defaults to 'float_array'), supports '?demo=true' or x402 (10 sats), and returns HTTP 400 if invalid.",
     "inputSchema": {
       "type": "object",
       "properties": {
