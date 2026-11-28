@@ -58,7 +58,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "enforce_json_schema_types",
@@ -181,7 +185,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "clean_tabular_dataset",
@@ -304,7 +312,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "compile_xml_agent_prompt",
@@ -365,7 +377,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "synthesize_python_automation_code",
@@ -426,7 +442,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "summarize_technical_document",
@@ -487,7 +507,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "synthesize_web_intelligence_brief",
@@ -680,7 +704,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "arbitrate_agent_deliverable_escrow",
@@ -745,7 +773,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "infer_mpp_streaming_session",
@@ -806,7 +838,11 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   },
   {
     "name": "generate_x402_vector_embeddings",
@@ -866,6 +902,10 @@
       "destructiveHint": false,
       "idempotentHint": true,
       "openWorldHint": false
-    }
+    },
+    "free_tier": true,
+    "price_sats": 0,
+    "priceSats": 0,
+    "price_usd": 0.0
   }
 ]
